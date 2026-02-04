@@ -1,0 +1,11 @@
+fragment CardFields on GridCard {
+  sys { id }
+  title { ...HeadingFields }
+  description { ...DescriptionFields }
+  asset { ...AssetContainerFields }
+  badges
+  date
+  linksCollection(limit: 2) {
+    items { ...ButtonFields }
+  }
+}

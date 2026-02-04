@@ -1,0 +1,8 @@
+fragment GridSectionFields on PageSection {
+  sys { id }
+  title { ...HeadingFields }
+  text { ...DescriptionFields }
+  cardsCollection(limit: 6) {
+    items { ...CardFields }
+  }
+}

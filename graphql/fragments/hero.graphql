@@ -1,0 +1,10 @@
+fragment HeroFields on Hero {
+  sys { id }
+  title { ...HeadingFields }
+  text
+  badge
+  background { ...AssetContainerFields }
+  linksCollection(limit: 2) {
+    items { ...ButtonFields }
+  }
+}

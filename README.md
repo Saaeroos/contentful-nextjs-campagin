@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Contentful Next.js Campaigns
+
+This is a Next.js application integrated with Contentful CMS using GraphQL.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js
+- npm, yarn, or pnpm
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory and add the following variables:
+
+```env
+CONTENTFUL_SPACE_ID=your_space_id
+CONTENTFUL_PREVIEW_ACCESS_TOKEN=your_preview_access_token
+```
+
+### Installation
+
+Install the dependencies:
+
+```bash
+npm install
+```
+
+### Running the App
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `dev`: Runs the development server.
+- `build`: Builds the application for production.
+- `start`: Starts the production server.
+- `lint`: Runs ESLint.
+- `codegen`: Generates TypeScript types from your GraphQL queries.
 
-## Learn More
+## Why GraphQL?
 
-To learn more about Next.js, take a look at the following resources:
+I chose to use GraphQL with Contentful because it provides a scalable solution that allows us to select the data needed for every query. This approach prevent over-fetching and ensures the application remains efficient as the content model grows.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contentful Schema
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Below are the schema diagrams for the Contentful content model used in this project.
 
-## Deploy on Vercel
+### Master Schema
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+![Master Schema](docs/cf-Blank-master.png)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Extended Master Schema
+
+![Extended Master Schema](docs/cf-Blank-master-extended.png)

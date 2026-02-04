@@ -1,0 +1,4 @@
+fragment DescriptionFields on Description {
+  sys { id }
+  content { json }
+}

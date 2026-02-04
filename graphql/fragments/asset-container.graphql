@@ -1,0 +1,9 @@
+fragment AssetContainerFields on AssetContainer {
+  sys { id }
+  asset {
+    url
+    width
+    height
+    description
+  }
+}

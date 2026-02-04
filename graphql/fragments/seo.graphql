@@ -1,0 +1,7 @@
+fragment SeoFields on PageSeo {
+  sys { id }
+  metaTitle
+  metaDescription
+  imageAlts
+  allowIndexing
+}

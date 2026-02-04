@@ -1,0 +1,6 @@
+fragment ButtonFields on Button {
+  sys { id }
+  text
+  type
+  link
+}

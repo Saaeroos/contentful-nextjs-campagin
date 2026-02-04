@@ -1,0 +1,25 @@
+query GetPageBySlug($slug: String!, $preview: Boolean = false) {
+  pageCollection(where: { slug: $slug }, limit: 1, preview: $preview) {
+    items {
+      sys { id }
+      slug
+      seo { 
+        ...SeoFields
+      }
+      hero {
+        ...HeroFields
+      }
+      mainContentCollection(limit: 10) {
+        items {
+          __typename
+          ... on PageSection {
+            ...GridSectionFields
+          }
+        }
+      }
+      footer {
+        ...FooterFields
+      }
+    }
+  }
+}

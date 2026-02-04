@@ -1,0 +1,6 @@
+fragment FooterFields on PageFooter {
+  sys { id }
+  title { ...HeadingFields }
+  description { ...DescriptionFields }
+  subscriptionButton { ...ButtonFields }
+}

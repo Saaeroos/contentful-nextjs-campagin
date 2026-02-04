@@ -1,0 +1,5 @@
+fragment HeadingFields on Heading {
+  sys { id }
+  type
+  content
+}
