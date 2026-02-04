@@ -5,13 +5,13 @@ export async function POST(request: NextRequest) {
   try {
     const secret = request.headers.get('x-vercel-reval-key');
 
-    // Check for secret to confirm this is a valid request
+    // Confirm this is a valid request
     if (secret !== process.env.CONTENTFUL_REVALIDATE_SECRET) {
       return NextResponse.json({ message: 'Invalid secret' }, { status: 401 });
     }
 
     // Revalidate the cache for the 'contentful' tag
-    revalidateTag('contentful');
+    revalidateTag('contentful', 'max');
 
     return NextResponse.json({ revalidated: true, now: Date.now() });
   } catch (err) {
