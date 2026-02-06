@@ -14,7 +14,7 @@ interface PageProps {
 // Helper to format slug
 const formatSlug = (slugParams?: string[]) => {
   if (!slugParams || slugParams.length === 0) {
-    return '/overview'; // Default to '/overview' slug for root path
+    return '/'; // Default to '/' slug for root path
   }
   return `/${slugParams.join('/')}`; // Ensure leading slash
 };
