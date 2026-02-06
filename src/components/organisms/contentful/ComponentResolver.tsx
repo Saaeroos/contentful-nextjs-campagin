@@ -1,7 +1,7 @@
 import { PageSection } from '@/types/contentful';
-import { Hero } from '@/components/features/Hero';
-import { GridSection } from '@/components/features/GridSection';
-import { Footer } from '@/components/layout/Footer';
+import { Hero } from '@/components/organisms/features/Hero';
+import { GridSection } from '@/components/organisms/features/GridSection';
+import { Footer } from '@/components/organisms/layout/Footer';
 
 interface ComponentResolverProps {
   component: PageSection;

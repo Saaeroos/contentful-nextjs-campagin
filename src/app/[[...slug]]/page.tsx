@@ -1,9 +1,10 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getPage } from '@/lib/contentful/api';
-import { ComponentResolver } from '@/components/contentful/ComponentResolver';
-import { Hero } from '@/components/features/Hero';
-import { Footer } from '@/components/layout/Footer';
+import { ComponentResolver } from '@/components/organisms/contentful/ComponentResolver';
+import { Hero } from '@/components/organisms/features/Hero';
+import { Footer } from '@/components/organisms/layout/Footer';
+import { formatPageSlug } from '@/lib/utils/formatPageSlug';
 
 interface PageProps {
   params: Promise<{
@@ -11,17 +12,9 @@ interface PageProps {
   }>;
 }
 
-// Helper to format slug
-const formatSlug = (slugParams?: string[]) => {
-  if (!slugParams || slugParams.length === 0) {
-    return '/'; // Default to '/' slug for root path
-  }
-  return `/${slugParams.join('/')}`; // Ensure leading slash
-};
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const pageSlug = formatSlug(slug);
+  const pageSlug = formatPageSlug(slug);
   const page = await getPage(pageSlug);
 
   if (!page || !page.seo) {
@@ -49,7 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function Page({ params }: PageProps) {
   const { slug } = await params;
-  const pageSlug = formatSlug(slug);
+  const pageSlug = formatPageSlug(slug);
   const page = await getPage(pageSlug);
 
   if (!page) {
