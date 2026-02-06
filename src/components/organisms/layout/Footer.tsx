@@ -1,7 +1,9 @@
-import { IFooter } from '@/types/contentful';
 import { Button } from '@/components/atoms/Button';
 import { Heading, HeadingType } from '@/components/atoms/Heading';
 import { Description } from '@/components/atoms/Description';
+
+//CMS types
+import { IFooter } from '@/types/contentful';
 
 interface FooterProps {
   data: IFooter;

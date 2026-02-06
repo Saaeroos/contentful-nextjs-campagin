@@ -1,27 +1,29 @@
 import Image from 'next/image';
-import { IAssetContainer, IButton, IDescription, IHeading } from '@/types/contentful';
 import { Heading, HeadingType } from '@/components/atoms/Heading';
 import { Description } from '@/components/atoms/Description';
 import { Button } from '@/components/atoms/Button';
 
+//CMS types
+import { IAssetContainer, IButton, IDescription, IHeading } from '@/types/contentful';
+
 interface CardProps {
   title: IHeading
   description?: IDescription
-  asset?: IAssetContainer
+  assetContainer?: IAssetContainer
   linksCollection?: IButton[]
   badges?: string[]
   date?: string
 }
 
-export function Card({ title, description, asset, linksCollection, badges, date }: CardProps) {
+export function Card({ title, description, assetContainer, linksCollection, badges, date }: CardProps) {
 
   return (
     <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow">
-      {asset?.asset && (
+      {assetContainer?.asset && (
         <div className="relative h-48 w-full">
           <Image
-            src={asset.asset.url}
-            alt={asset.asset.description || title.content || 'Card image'}
+            src={assetContainer.asset.url}
+            alt={assetContainer.asset.description || title.content || 'Card image'}
             fill
             className="object-cover"
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
