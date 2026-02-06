@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import { IButton } from '@/types/contentful';
 import { cn } from '@/lib/utils/cn';
 
 interface ButtonProps {
-  data: IButton;
+  text: string;
+  link: string;
+  type?: string;
   className?: string;
 }
 
-export function Button({ data, className }: ButtonProps) {
-  const { text, link, type: rawType } = data;
+export function Button({ text, link, type: rawType, className }: ButtonProps) {
   const type = (rawType || 'primary').toLowerCase();
 
   const variants = {

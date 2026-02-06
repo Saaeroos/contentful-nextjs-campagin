@@ -1,16 +1,17 @@
-import { IHeading } from '@/types/contentful';
 import React from 'react';
 import { cn } from '@/lib/utils/cn';
 
+export type HeadingType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+
 interface HeadingProps {
-  data: IHeading;
+  content: string;
+  type?: HeadingType;
   className?: string;
 }
 
-export function Heading({ data, className }: HeadingProps) {
-  const { type, content } = data;
-  const normalizedType: string = type?.toLowerCase() || 'h2';
-  const Tag = normalizedType as keyof React.JSX.IntrinsicElements;
+export function Heading({ content, type = 'h2', className }: HeadingProps) {
+  const safeType = type.toLowerCase() as HeadingType;
+  const Tag = safeType;
 
   const styles: Record<string, string> = {
     h1: 'text-4xl md:text-5xl font-bold mb-6',
@@ -22,7 +23,7 @@ export function Heading({ data, className }: HeadingProps) {
   };
 
   return (
-    <Tag className={cn(styles[normalizedType], className)}>
+    <Tag className={cn(styles[safeType], className)}>
       {content}
     </Tag>
   );
