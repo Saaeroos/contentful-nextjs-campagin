@@ -1,7 +1,9 @@
-import { IGridSection } from '@/types/contentful';
 import { Card } from '@/components/molecules/Card';
 import { Heading, HeadingType } from '@/components/atoms/Heading';
 import { Description } from '@/components/atoms/Description';
+
+//CMS types
+import { IGridSection } from '@/types/contentful';
 
 interface GridSectionProps {
   data: IGridSection;
@@ -32,7 +34,7 @@ export function GridSection({ data }: GridSectionProps) {
                   key={card.sys.id}
                   title={card.title}
                   description={card.description}
-                  asset={card.asset}
+                  assetContainer={card.asset}
                   linksCollection={card.linksCollection.items || []}
                   badges={card.badges}
                   date={card.date}

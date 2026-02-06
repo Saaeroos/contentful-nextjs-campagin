@@ -1,7 +1,9 @@
 import Image from 'next/image';
-import { IHero } from '@/types/contentful';
 import { Button } from '@/components/atoms/Button';
 import { Heading, HeadingType } from '@/components/atoms/Heading';
+
+//CMS types
+import { IHero } from '@/types/contentful';
 
 interface HeroProps {
   data: IHero;
