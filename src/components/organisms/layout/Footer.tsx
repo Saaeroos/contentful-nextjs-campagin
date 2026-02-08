@@ -33,22 +33,24 @@ export function Footer({ data }: FooterProps) {
             )}
           </div>
 
-          {/* Footer Links */}
-          {linksCollection?.items?.map((link) => {
-            if (!link?.text || !link?.link) {
-              return null;
-            }
-            return (
-              <div key={link?.sys?.id}>
-                <Button
-                  text={link?.text || ""}
-                  link={link?.link || ""}
-                  type={link?.type || "primary"}
-                  className="px-6 py-2"
-                />
-              </div>
-            );
-          })}
+          <div className="flex flex-col gap-2">
+            {/* Footer Links */}
+            {linksCollection?.items?.map((link) => {
+              if (!link?.text || !link?.link) {
+                return null;
+              }
+              return (
+                <div key={link?.sys?.id}>
+                  <Button
+                    text={link?.text || ""}
+                    link={link?.link || ""}
+                    type={link?.type || "primary"}
+                    className="px-6 py-2"
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </footer>
