@@ -2,5 +2,7 @@ fragment FooterFields on PageFooter {
   sys { id }
   title { ...HeadingFields }
   description { ...DescriptionFields }
-  subscriptionButton { ...ButtonFields }
+  linksCollection(limit: 2) {
+    items { ...ButtonFields }
+  }
 }

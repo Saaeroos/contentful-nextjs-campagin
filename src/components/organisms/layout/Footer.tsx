@@ -10,12 +10,7 @@ interface FooterProps {
 }
 
 export function Footer({ data }: FooterProps) {
-  const { title, description, subscriptionButton } = data;
-  const {
-    text: buttonTitle,
-    link: buttonLink,
-    type: buttonType,
-  } = subscriptionButton || {};
+  const { title, description, linksCollection } = data;
 
   return (
     <footer className="bg-gray-900 text-white py-12">
@@ -38,17 +33,22 @@ export function Footer({ data }: FooterProps) {
             )}
           </div>
 
-          {/* Subscription Button */}
-          {subscriptionButton && (
-            <div>
-              <Button
-                text={buttonTitle || ""}
-                link={buttonLink || ""}
-                type={buttonType || "primary"}
-                className="px-6 py-2"
-              />
-            </div>
-          )}
+          {/* Footer Links */}
+          {linksCollection?.items?.map((link) => {
+            if (!link?.text || !link?.link) {
+              return null;
+            }
+            return (
+              <div key={link?.sys?.id}>
+                <Button
+                  text={link?.text || ""}
+                  link={link?.link || ""}
+                  type={link?.type || "primary"}
+                  className="px-6 py-2"
+                />
+              </div>
+            );
+          })}
         </div>
       </div>
     </footer>
