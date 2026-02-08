@@ -54,6 +54,8 @@ Below are the schema diagrams for the Contentful content model used in this proj
 
 ### Master Schema
 
+[Master Schema Link](https://app.contentful.com/spaces/zojost79cdx6/visual_modeler/content_types?utm_medium=share)
+
 ![Master Schema](docs/cf-Blank-master.png)
 
 ### Extended Master Schema
