@@ -1,15 +1,17 @@
 import Image from 'next/image';
-import { Heading, HeadingType } from '@/components/atoms/Heading';
-import { Description } from '@/components/atoms/Description';
-import { Button } from '@/components/atoms/Button';
+
+// components
+import { Heading, HeadingType, Button } from '@/components/atoms';
+import { Description } from '@/components/molecules/Description';
 
 //CMS types
-import { 
-  AssetContainerFieldsFragment, 
-  ButtonFieldsFragment, 
-  DescriptionFieldsFragment, 
-  HeadingFieldsFragment 
+import {
+  AssetContainerFieldsFragment,
+  ButtonFieldsFragment,
+  DescriptionFieldsFragment,
+  HeadingFieldsFragment
 } from '@graphql/generated/graphql';
+
 
 interface CardProps {
   title: HeadingFieldsFragment
@@ -58,14 +60,15 @@ export function Card({ title, description, assetContainer, linksCollection, badg
             {linksCollection.map((button) => {
               if (!button) return null;
               return (
-              <Button
-                key={button.sys.id}
-                text={button.text || ''}
-                link={button.link || ''}
-                type={button.type || 'outline'}
-                className="w-full"
-              />
-            )})}
+                <Button
+                  key={button.sys.id}
+                  text={button.text || ''}
+                  link={button.link || ''}
+                  type={button.type || 'outline'}
+                  className="w-full"
+                />
+              )
+            })}
           </div>
         )}
       </div>

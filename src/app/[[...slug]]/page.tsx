@@ -1,10 +1,13 @@
 import { notFound } from 'next/navigation';
 import { Metadata } from 'next';
 import { getPage } from '@/lib/contentful/api';
-import { ComponentResolver } from '@/components/organisms/contentful/ComponentResolver';
-import { Hero } from '@/components/organisms/features/Hero';
-import { Footer } from '@/components/organisms/layout/Footer';
-import { formatPageSlug } from '@/lib/utils/formatPageSlug';
+
+// components
+import { Hero, Footer, ComponentResolver } from '@/components/organisms';
+
+//utils
+import { formatPageSlug } from '@/lib/utils';
+
 
 interface PageProps {
   params: Promise<{

@@ -1,7 +1,8 @@
-import { Hero } from '@/components/organisms/features/Hero';
-import { GridSection } from '@/components/organisms/features/GridSection';
-import { Footer } from '@/components/organisms/layout/Footer';
 import { PageData } from '@/lib/contentful/api';
+
+// components
+import { GridSection } from '@/components/organisms';
+
 
 type PageSectionItem = NonNullable<NonNullable<PageData['mainContentCollection']>['items'][0]>;
 
@@ -11,7 +12,7 @@ interface ComponentResolverProps {
 
 export function ComponentResolver({ component }: ComponentResolverProps) {
   if (!component) return null;
-  
+
   switch (component.__typename) {
     case 'PageSection':
       return <GridSection data={component} />;

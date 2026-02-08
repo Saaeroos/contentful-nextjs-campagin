@@ -1,9 +1,11 @@
 import Image from 'next/image';
-import { Button } from '@/components/atoms/Button';
-import { Heading, HeadingType } from '@/components/atoms/Heading';
+
+// components
+import { Button, Heading, HeadingType } from '@/components/atoms';
 
 //CMS types
 import { HeroFieldsFragment } from '@graphql/generated/graphql';
+
 
 interface HeroProps {
   data: HeroFieldsFragment;

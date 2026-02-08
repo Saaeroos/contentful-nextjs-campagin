@@ -1,9 +1,10 @@
-import { Button } from '@/components/atoms/Button';
-import { Heading, HeadingType } from '@/components/atoms/Heading';
-import { Description } from '@/components/atoms/Description';
+// components
+import { Button, Heading, HeadingType } from '@/components/atoms';
+import { Description } from '@/components/molecules';
 
 //CMS types
 import { FooterFieldsFragment } from '@graphql/generated/graphql';
+
 
 interface FooterProps {
   data: FooterFieldsFragment;

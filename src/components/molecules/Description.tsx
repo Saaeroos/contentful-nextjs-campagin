@@ -4,6 +4,7 @@ import { cn } from '@/lib/utils/cn';
 //CMS types
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
+
 interface DescriptionProps {
   content: string | Document;
   className?: string;

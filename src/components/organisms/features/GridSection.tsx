@@ -1,9 +1,10 @@
-import { Card } from '@/components/molecules/Card';
-import { Heading, HeadingType } from '@/components/atoms/Heading';
-import { Description } from '@/components/atoms/Description';
+// components
+import { Heading, HeadingType } from '@/components/atoms';
+import { Card, Description } from '@/components/molecules';
 
 //CMS types
 import { GridSectionFieldsFragment } from '@graphql/generated/graphql';
+
 
 interface GridSectionProps {
   data: GridSectionFieldsFragment;
