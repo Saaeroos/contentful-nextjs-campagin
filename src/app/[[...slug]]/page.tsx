@@ -29,9 +29,7 @@ export async function generateMetadata({
   }
 
   const { seo } = page;
-
-  const ogImage = seo.openGraphImage?.asset?.url;
-  const formattedOgImage = formatOGImage(ogImage || "");
+  const ogImage = formatOGImage(seo.openGraphImage?.asset?.url || "");
 
   return {
     title: seo.metaTitle,
@@ -43,7 +41,7 @@ export async function generateMetadata({
     openGraph: {
       title: seo.metaTitle || undefined,
       description: seo.metaDescription || undefined,
-      images: formattedOgImage ? [formattedOgImage] : [],
+      ...(ogImage ? { images: [ogImage] } : {}),
     },
   };
 }
