@@ -6,8 +6,8 @@
  */
 
 export const formatPageSlug = (slugParams?: string[]) => {
-    if (!slugParams || slugParams.length === 0) {
-        return '/'; 
-    }
-    return `/${slugParams.join('/')}`; 
+  if (!slugParams || slugParams.length === 0) {
+    return "/";
+  }
+  return `/${slugParams.join("/")}`;
 };
