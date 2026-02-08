@@ -6,7 +6,7 @@ import { getPage } from "@/lib/contentful/api";
 import { Hero, Footer, ComponentResolver } from "@/components/organisms";
 
 //utils
-import { formatPageSlug } from "@/lib/utils";
+import { formatPageSlug, formatOGImage } from "@/lib/utils";
 
 interface PageProps {
   params: Promise<{
@@ -30,6 +30,9 @@ export async function generateMetadata({
 
   const { seo } = page;
 
+  const ogImage = seo.openGraphImage?.asset?.url;
+  const formattedOgImage = formatOGImage(ogImage || "");
+
   return {
     title: seo.metaTitle,
     description: seo.metaDescription,
@@ -40,7 +43,7 @@ export async function generateMetadata({
     openGraph: {
       title: seo.metaTitle || undefined,
       description: seo.metaDescription || undefined,
-      images: [seo.openGraphImage?.asset?.url || ""],
+      images: formattedOgImage ? [formattedOgImage] : [],
     },
   };
 }
