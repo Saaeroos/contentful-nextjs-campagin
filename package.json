@@ -6,8 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "codegen": "graphql-codegen --config codegen.ts"
+    "lint": "eslint .",
+    "codegen": "graphql-codegen --config codegen.ts",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,css,scss,md}\"",
+    "precommit": "npm run lint && npm run format"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^16.1.6",
@@ -31,6 +33,7 @@
     "eslint": "^9.0.0",
     "eslint-config-next": "^16.1.0",
     "postcss": "^8.0.0",
+    "prettier": "^3.8.1",
     "typescript": "^5.0.0"
   }
 }

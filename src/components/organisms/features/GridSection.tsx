@@ -1,10 +1,9 @@
 // components
-import { Heading, HeadingType } from '@/components/atoms';
-import { Card, Description } from '@/components/molecules';
+import { Heading, HeadingType } from "@/components/atoms";
+import { Card, Description } from "@/components/molecules";
 
 //CMS types
-import { GridSectionFieldsFragment } from '@graphql/generated/graphql';
-
+import { GridSectionFieldsFragment } from "@graphql/generated/graphql";
 
 interface GridSectionProps {
   data: GridSectionFieldsFragment;
@@ -22,8 +21,19 @@ export function GridSection({ data }: GridSectionProps) {
       <div className="container mx-auto px-4">
         <div className="text-center max-w-3xl mx-auto mb-16">
           {/* Heading and Description */}
-          {title && <Heading content={title.content || ''} type={(title.type || 'h2') as HeadingType} className="text-gray-900 mb-6 text-4xl font-bold" />}
-          {text && <Description content={text.content?.json || ''} className="mt-4 text-xl text-gray-600" />}
+          {title && (
+            <Heading
+              content={title.content || ""}
+              type={(title.type || "h2") as HeadingType}
+              className="text-gray-900 mb-6 text-4xl font-bold"
+            />
+          )}
+          {text && (
+            <Description
+              content={text.content?.json || ""}
+              className="mt-4 text-xl text-gray-600"
+            />
+          )}
         </div>
         {/* Grid of Cards */}
         {cardsCollection?.items && cardsCollection.items.length > 0 ? (
@@ -36,7 +46,11 @@ export function GridSection({ data }: GridSectionProps) {
                   title={card.title}
                   description={card.description || undefined}
                   assetContainer={card.asset || undefined}
-                  linksCollection={card.linksCollection?.items.filter((item) => item !== null) || []}
+                  linksCollection={
+                    card.linksCollection?.items.filter(
+                      (item) => item !== null,
+                    ) || []
+                  }
                   badges={card.badges}
                   date={card.date}
                 />

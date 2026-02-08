@@ -1,2 +1,2 @@
-export { cn } from './cn';
-export { formatPageSlug } from './formatPageSlug';
+export { cn } from "./cn";
+export { formatPageSlug } from "./formatPageSlug";
