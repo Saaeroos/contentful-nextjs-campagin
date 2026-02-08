@@ -1,12 +1,13 @@
-import { Button } from '@/components/atoms/Button';
-import { Heading, HeadingType } from '@/components/atoms/Heading';
-import { Description } from '@/components/atoms/Description';
+// components
+import { Button, Heading, HeadingType } from '@/components/atoms';
+import { Description } from '@/components/molecules';
 
 //CMS types
-import { IFooter } from '@/types/contentful';
+import { FooterFieldsFragment } from '@graphql/generated/graphql';
+
 
 interface FooterProps {
-  data: IFooter;
+  data: FooterFieldsFragment;
 }
 
 export function Footer({ data }: FooterProps) {

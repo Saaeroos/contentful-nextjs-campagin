@@ -1,8 +1,9 @@
-import { IPage } from '@/types/contentful';
-import { GetPageBySlugDocument } from '../../../graphql/generated/graphql';
+import { GetPageBySlugDocument, GetPageBySlugQuery } from '@graphql/generated/graphql';
 import { print } from 'graphql';
 
-export async function getPage(slug: string, preview: boolean = false): Promise<IPage | null> {
+export type PageData = NonNullable<NonNullable<GetPageBySlugQuery['pageCollection']>['items'][0]>;
+
+export async function getPage(slug: string, preview: boolean = false): Promise<PageData | null> {
   const query = print(GetPageBySlugDocument);
 
   try {

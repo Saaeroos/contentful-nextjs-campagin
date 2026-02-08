@@ -1,12 +1,14 @@
 import Image from 'next/image';
-import { Button } from '@/components/atoms/Button';
-import { Heading, HeadingType } from '@/components/atoms/Heading';
+
+// components
+import { Button, Heading, HeadingType } from '@/components/atoms';
 
 //CMS types
-import { IHero } from '@/types/contentful';
+import { HeroFieldsFragment } from '@graphql/generated/graphql';
+
 
 interface HeroProps {
-  data: IHero;
+  data: HeroFieldsFragment;
 }
 
 export function Hero({ data }: HeroProps) {
@@ -21,7 +23,7 @@ export function Hero({ data }: HeroProps) {
       {background?.asset && (
         <div className='absolute top-0 left-0 right-0 bottom-0 z-0'>
           <Image
-            src={background.asset.url}
+            src={background.asset.url || ''}
             alt={background.asset.description || 'Hero background'}
             fill
             sizes="100vw"
@@ -59,9 +61,11 @@ export function Hero({ data }: HeroProps) {
             </div>
           )}
 
-          {linksCollection?.items.length > 0 && (
+          {linksCollection?.items && linksCollection.items.length > 0 && (
             <div className="flex flex-wrap gap-4 justify-center">
-              {linksCollection.items.map((button) => (
+              {linksCollection.items.map((button) => {
+                if (!button) return null;
+                return (
                 <Button
                   key={button.sys.id}
                   text={button.text || ''}
@@ -69,7 +73,7 @@ export function Hero({ data }: HeroProps) {
                   type={button.type || 'primary'}
                   className="text-lg px-8 py-4 shadow-xl hover:scale-105 transition-transform"
                 />
-              ))}
+              )})}
             </div>
           )}
         </div>
