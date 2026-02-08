@@ -15,17 +15,24 @@ export async function getPage(
   const query = print(GetPageBySlugDocument);
 
   try {
+    const accessToken = preview
+      ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
+      : process.env.CONTENTFUL_ACCESS_TOKEN;
+
+    if (!accessToken) {
+      console.error(
+        `Missing Contentful ${preview ? "Preview" : ""} Access Token`,
+      );
+      return null;
+    }
+
     const response = await fetch(
       `https://graphql.contentful.com/content/v1/spaces/${process.env.CONTENTFUL_SPACE_ID}`,
       {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${
-            preview
-              ? process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
-              : process.env.CONTENTFUL_ACCESS_TOKEN
-          }`,
+          Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify({
           query: query,
@@ -42,7 +49,13 @@ export async function getPage(
       return null;
     }
 
-    return data?.pageCollection?.items[0] || null;
+    const pageData = data?.pageCollection?.items[0] || null;
+
+    if (!pageData) {
+      console.log(`Page not found for slug: ${slug} (preview: ${preview})`);
+    }
+
+    return pageData;
   } catch (error) {
     console.error("Error fetching page:", error);
     return null;
