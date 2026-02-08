@@ -24,6 +24,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@graphql/*": [
+        "./graphql/*"
       ]
     },
     "target": "ES2017"

@@ -4,15 +4,20 @@ import { Description } from '@/components/atoms/Description';
 import { Button } from '@/components/atoms/Button';
 
 //CMS types
-import { IAssetContainer, IButton, IDescription, IHeading } from '@/types/contentful';
+import { 
+  AssetContainerFieldsFragment, 
+  ButtonFieldsFragment, 
+  DescriptionFieldsFragment, 
+  HeadingFieldsFragment 
+} from '@graphql/generated/graphql';
 
 interface CardProps {
-  title: IHeading
-  description?: IDescription
-  assetContainer?: IAssetContainer
-  linksCollection?: IButton[]
-  badges?: string[]
-  date?: string
+  title: HeadingFieldsFragment
+  description?: DescriptionFieldsFragment | null
+  assetContainer?: AssetContainerFieldsFragment | null
+  linksCollection?: (ButtonFieldsFragment | null)[] | null
+  badges?: (string | null)[] | null
+  date?: string | null
 }
 
 export function Card({ title, description, assetContainer, linksCollection, badges, date }: CardProps) {
@@ -22,7 +27,7 @@ export function Card({ title, description, assetContainer, linksCollection, badg
       {assetContainer?.asset && (
         <div className="relative h-48 w-full">
           <Image
-            src={assetContainer.asset.url}
+            src={assetContainer.asset.url || ''}
             alt={assetContainer.asset.description || title.content || 'Card image'}
             fill
             className="object-cover"
@@ -50,7 +55,9 @@ export function Card({ title, description, assetContainer, linksCollection, badg
 
         {linksCollection && linksCollection.length > 0 && (
           <div className="mt-auto pt-4 space-y-2">
-            {linksCollection.map((button) => (
+            {linksCollection.map((button) => {
+              if (!button) return null;
+              return (
               <Button
                 key={button.sys.id}
                 text={button.text || ''}
@@ -58,7 +65,7 @@ export function Card({ title, description, assetContainer, linksCollection, badg
                 type={button.type || 'outline'}
                 className="w-full"
               />
-            ))}
+            )})}
           </div>
         )}
       </div>

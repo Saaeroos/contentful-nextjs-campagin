@@ -3,10 +3,10 @@ import { Heading, HeadingType } from '@/components/atoms/Heading';
 import { Description } from '@/components/atoms/Description';
 
 //CMS types
-import { IFooter } from '@/types/contentful';
+import { FooterFieldsFragment } from '@graphql/generated/graphql';
 
 interface FooterProps {
-  data: IFooter;
+  data: FooterFieldsFragment;
 }
 
 export function Footer({ data }: FooterProps) {

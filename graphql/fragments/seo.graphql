@@ -4,4 +4,7 @@ fragment SeoFields on PageSeo {
   metaDescription
   imageAlts
   allowIndexing
+  openGraphImage {
+    ...AssetContainerFields
+  }
 }
