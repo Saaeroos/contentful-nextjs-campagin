@@ -18,7 +18,7 @@ type Documents = {
     "fragment ButtonFields on Button {\n  sys {\n    id\n  }\n  text\n  type\n  link\n}": typeof types.ButtonFieldsFragmentDoc,
     "fragment CardFields on GridCard {\n  sys {\n    id\n  }\n  title {\n    ...HeadingFields\n  }\n  description {\n    ...DescriptionFields\n  }\n  asset {\n    ...AssetContainerFields\n  }\n  badges\n  date\n  linksCollection(limit: 2) {\n    items {\n      ...ButtonFields\n    }\n  }\n}": typeof types.CardFieldsFragmentDoc,
     "fragment DescriptionFields on Description {\n  sys {\n    id\n  }\n  content {\n    json\n  }\n}": typeof types.DescriptionFieldsFragmentDoc,
-    "fragment FooterFields on PageFooter {\n  sys {\n    id\n  }\n  title {\n    ...HeadingFields\n  }\n  description {\n    ...DescriptionFields\n  }\n  subscriptionButton {\n    ...ButtonFields\n  }\n}": typeof types.FooterFieldsFragmentDoc,
+    "fragment FooterFields on PageFooter {\n  sys {\n    id\n  }\n  title {\n    ...HeadingFields\n  }\n  description {\n    ...DescriptionFields\n  }\n  linksCollection(limit: 2) {\n    items {\n      ...ButtonFields\n    }\n  }\n}": typeof types.FooterFieldsFragmentDoc,
     "fragment GridSectionFields on PageSection {\n  sys {\n    id\n  }\n  title {\n    ...HeadingFields\n  }\n  text {\n    ...DescriptionFields\n  }\n  cardsCollection(limit: 6) {\n    items {\n      ...CardFields\n    }\n  }\n}": typeof types.GridSectionFieldsFragmentDoc,
     "fragment HeadingFields on Heading {\n  sys {\n    id\n  }\n  type\n  content\n}": typeof types.HeadingFieldsFragmentDoc,
     "fragment HeroFields on Hero {\n  sys {\n    id\n  }\n  title {\n    ...HeadingFields\n  }\n  text\n  badge\n  background {\n    ...AssetContainerFields\n  }\n  linksCollection(limit: 2) {\n    items {\n      ...ButtonFields\n    }\n  }\n}": typeof types.HeroFieldsFragmentDoc,
@@ -30,7 +30,7 @@ const documents: Documents = {
     "fragment ButtonFields on Button {\n  sys {\n    id\n  }\n  text\n  type\n  link\n}": types.ButtonFieldsFragmentDoc,
     "fragment CardFields on GridCard {\n  sys {\n    id\n  }\n  title {\n    ...HeadingFields\n  }\n  description {\n    ...DescriptionFields\n  }\n  asset {\n    ...AssetContainerFields\n  }\n  badges\n  date\n  linksCollection(limit: 2) {\n    items {\n      ...ButtonFields\n    }\n  }\n}": types.CardFieldsFragmentDoc,
     "fragment DescriptionFields on Description {\n  sys {\n    id\n  }\n  content {\n    json\n  }\n}": types.DescriptionFieldsFragmentDoc,
-    "fragment FooterFields on PageFooter {\n  sys {\n    id\n  }\n  title {\n    ...HeadingFields\n  }\n  description {\n    ...DescriptionFields\n  }\n  subscriptionButton {\n    ...ButtonFields\n  }\n}": types.FooterFieldsFragmentDoc,
+    "fragment FooterFields on PageFooter {\n  sys {\n    id\n  }\n  title {\n    ...HeadingFields\n  }\n  description {\n    ...DescriptionFields\n  }\n  linksCollection(limit: 2) {\n    items {\n      ...ButtonFields\n    }\n  }\n}": types.FooterFieldsFragmentDoc,
     "fragment GridSectionFields on PageSection {\n  sys {\n    id\n  }\n  title {\n    ...HeadingFields\n  }\n  text {\n    ...DescriptionFields\n  }\n  cardsCollection(limit: 6) {\n    items {\n      ...CardFields\n    }\n  }\n}": types.GridSectionFieldsFragmentDoc,
     "fragment HeadingFields on Heading {\n  sys {\n    id\n  }\n  type\n  content\n}": types.HeadingFieldsFragmentDoc,
     "fragment HeroFields on Hero {\n  sys {\n    id\n  }\n  title {\n    ...HeadingFields\n  }\n  text\n  badge\n  background {\n    ...AssetContainerFields\n  }\n  linksCollection(limit: 2) {\n    items {\n      ...ButtonFields\n    }\n  }\n}": types.HeroFieldsFragmentDoc,
@@ -71,7 +71,7 @@ export function gql(source: "fragment DescriptionFields on Description {\n  sys 
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function gql(source: "fragment FooterFields on PageFooter {\n  sys {\n    id\n  }\n  title {\n    ...HeadingFields\n  }\n  description {\n    ...DescriptionFields\n  }\n  subscriptionButton {\n    ...ButtonFields\n  }\n}"): (typeof documents)["fragment FooterFields on PageFooter {\n  sys {\n    id\n  }\n  title {\n    ...HeadingFields\n  }\n  description {\n    ...DescriptionFields\n  }\n  subscriptionButton {\n    ...ButtonFields\n  }\n}"];
+export function gql(source: "fragment FooterFields on PageFooter {\n  sys {\n    id\n  }\n  title {\n    ...HeadingFields\n  }\n  description {\n    ...DescriptionFields\n  }\n  linksCollection(limit: 2) {\n    items {\n      ...ButtonFields\n    }\n  }\n}"): (typeof documents)["fragment FooterFields on PageFooter {\n  sys {\n    id\n  }\n  title {\n    ...HeadingFields\n  }\n  description {\n    ...DescriptionFields\n  }\n  linksCollection(limit: 2) {\n    items {\n      ...ButtonFields\n    }\n  }\n}"];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
